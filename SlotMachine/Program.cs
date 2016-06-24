@@ -20,6 +20,7 @@ namespace SlotMachine
         static void Main(string[] args)
         {
             SlotMachine myMachine = new SlotMachine(); // 3 slots, 5 icons per slot
+            myMachine.NumberOfSlots = 3;
 
             Console.WriteLine("Welcome to slots!");
 
