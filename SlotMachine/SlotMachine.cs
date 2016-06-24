@@ -40,7 +40,7 @@ namespace SlotMachine
         /// An array of integers that is as long as the number of slots,
         /// with each element of the array representing a different slot
         /// </summary>
-        private int[] icons;
+        private int[] icons = new int[3];
 
 
         public SlotMachine()
@@ -51,12 +51,14 @@ namespace SlotMachine
             MaximumBet = 100;
         }
 
+        Random random;
         /// <summary>
         /// Randomizes the contents of the icons
         /// </summary>
-        public void PullLever()
+        public int PullLever()
         {
-            // TODO
+           Random random = new Random(); 
+           return random.Next(IconsPerSlot);
         }
 
         /// <summary>
@@ -65,8 +67,21 @@ namespace SlotMachine
         /// <returns>an int[] with each slot as an element of the array</returns>
         public int[] GetResults()
         {
-            // TODO
-            return null;
+ 
+
+            for (int i = 0; i < icons.Length; i++)
+
+                if (icons [i] == 0)
+                {
+                    icons[i] = PullLever();
+                    PullLever();
+                }
+
+           
+                   
+                    return icons;
+                
+                
         }
 
         /// <summary>
